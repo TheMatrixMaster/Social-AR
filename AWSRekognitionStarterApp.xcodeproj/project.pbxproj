@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		002A35F44C2100A24FD78FEE /* Pods_AWSRekognitionStarterAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1489E8A7FFBAB08E6E16AC59 /* Pods_AWSRekognitionStarterAppUITests.framework */; };
 		21AE7A559ECC7658DC043C78 /* Pods_AWSRekognitionStarterAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC5CAB1E1E06D6159FAFE61 /* Pods_AWSRekognitionStarterAppTests.framework */; };
+		25A1218D2249B35500F7419F /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A1218C2249B35500F7419F /* ProfilePage.swift */; };
 		25BE9E4322470998006A8227 /* RegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BE9E4222470998006A8227 /* RegisterPage.swift */; };
 		25BE9E4722497675006A8227 /* ARPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BE9E4622497675006A8227 /* ARPage.swift */; };
 		25BE9E4922497D3D006A8227 /* RealLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BE9E4822497D3D006A8227 /* RealLoginPage.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		1489E8A7FFBAB08E6E16AC59 /* Pods_AWSRekognitionStarterAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AWSRekognitionStarterAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		194ED28A9D6DA0B0E18DD9BF /* Pods-AWSRekognitionStarterAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSRekognitionStarterAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSRekognitionStarterAppTests/Pods-AWSRekognitionStarterAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		25A1218C2249B35500F7419F /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		25BE9E4222470998006A8227 /* RegisterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPage.swift; sourceTree = "<group>"; };
 		25BE9E4622497675006A8227 /* ARPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPage.swift; sourceTree = "<group>"; };
 		25BE9E4822497D3D006A8227 /* RealLoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealLoginPage.swift; sourceTree = "<group>"; };
@@ -132,9 +134,10 @@
 				76A7735A213F302100974231 /* ViewController.swift */,
 				25BE9E4222470998006A8227 /* RegisterPage.swift */,
 				25CA07C322470139007AE63D /* LoginPage.swift */,
+				25BE9E4822497D3D006A8227 /* RealLoginPage.swift */,
+				25A1218C2249B35500F7419F /* ProfilePage.swift */,
 				25BE9E4622497675006A8227 /* ARPage.swift */,
 				76A7735C213F302100974231 /* Main.storyboard */,
-				25BE9E4822497D3D006A8227 /* RealLoginPage.swift */,
 				76A7735F213F302100974231 /* Assets.xcassets */,
 				76A77361213F302100974231 /* LaunchScreen.storyboard */,
 				76A77364213F302100974231 /* Info.plist */,
@@ -250,7 +253,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = AWS;
 				TargetAttributes = {
 					76A77354213F302100974231 = {
@@ -401,6 +404,7 @@
 			files = (
 				25BE9E4322470998006A8227 /* RegisterPage.swift in Sources */,
 				25BE9E4722497675006A8227 /* ARPage.swift in Sources */,
+				25A1218D2249B35500F7419F /* ProfilePage.swift in Sources */,
 				25BE9E4922497D3D006A8227 /* RealLoginPage.swift in Sources */,
 				25CA07C422470139007AE63D /* LoginPage.swift in Sources */,
 				76A7735B213F302100974231 /* ViewController.swift in Sources */,
@@ -474,6 +478,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -481,6 +486,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -531,6 +537,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -538,6 +545,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

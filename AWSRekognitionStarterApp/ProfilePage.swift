@@ -1,14 +1,14 @@
 //
-//  LoginPage.swift
+//  ProfilePage.swift
 //  AWSRekognitionStarterApp
 //
-//  Created by Stephen Lu on 2019-03-23.
+//  Created by Stephen Lu on 2019-03-25.
 //  Copyright © 2019 AWS. All rights reserved.
 //
 
 import UIKit
 
-class LoginPage: UIViewController {
+class ProfilePage: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,15 +17,6 @@ class LoginPage: UIViewController {
     }
     
 
-    @IBAction func Login(_ sender: Any) {
-        performSegue(withIdentifier: "LoginSegue", sender: self)
-    }
-    
-    
-    @IBAction func Register(_ sender: Any) {
-        performSegue(withIdentifier: "RegisterSegue", sender: self)
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -37,4 +28,3 @@ class LoginPage: UIViewController {
     */
 
 }
-
