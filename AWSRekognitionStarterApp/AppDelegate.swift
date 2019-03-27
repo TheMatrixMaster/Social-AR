@@ -16,6 +16,7 @@
  */
 import UIKit
 import AWSCore
+import AWSRekognition
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             region: AWSRegionType.USEast1,
             credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
-        /*
+        
          let colRequest = AWSRekognitionCreateCollectionRequest() // 1
          colRequest?.collectionId = "UserFaces" // 2
          AWSRekognition.default().createCollection(colRequest!) { (response, error) in  // 3
@@ -41,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          print(error!)
          }
          }
-         */
+        
         return true
     }
 

@@ -19,6 +19,8 @@ class RegisterPage: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var PhotoButton: UIButton!
     @IBOutlet weak var UserImageView: UIImageView!
     
+    var rekognitionClient:AWSRekognition!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -62,11 +64,28 @@ class RegisterPage: UIViewController, UIImagePickerControllerDelegate, UINavigat
         UserImageView.isHidden = false
         
         let userImage:Data = UIImageJPEGRepresentation(image, 0.2)!
-        
+        addImageToRekognitionCollection(imageData: userImage)
     }
     
     func addImageToRekognitionCollection(imageData: Data) {
-        print("Next Step is to add image data to rekognition collection")
+        rekognitionClient = AWSRekognition.default()
+        let image = AWSRekognitionImage()
+        image?.bytes = imageData
+        let imageRequest = AWSRekognitionIndexFacesRequest()
+        imageRequest?.collectionId = "UserFaces"
+        imageRequest?.externalImageId = FirstName.text! + "_" + LastName.text!
+        
+        imageRequest?.image = image
+        
+        rekognitionClient?.indexFaces(imageRequest!) { (response:AWSRekognitionIndexFacesResponse?, error:Error?) in
+            if error == nil
+            {
+                print(response!)
+                print("Testing registration")
+            } else {
+                print(error!)
+            }
+        }
     }
     
     /*

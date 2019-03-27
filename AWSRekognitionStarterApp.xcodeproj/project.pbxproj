@@ -14,6 +14,7 @@
 		25BE9E4722497675006A8227 /* ARPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BE9E4622497675006A8227 /* ARPage.swift */; };
 		25BE9E4922497D3D006A8227 /* RealLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BE9E4822497D3D006A8227 /* RealLoginPage.swift */; };
 		25CA07C422470139007AE63D /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CA07C322470139007AE63D /* LoginPage.swift */; };
+		25E99931224A929100F84920 /* ChatPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E99930224A929100F84920 /* ChatPage.swift */; };
 		76A77359213F302100974231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A77358213F302100974231 /* AppDelegate.swift */; };
 		76A7735B213F302100974231 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7735A213F302100974231 /* ViewController.swift */; };
 		76A7735E213F302100974231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7735C213F302100974231 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		25BE9E4622497675006A8227 /* ARPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPage.swift; sourceTree = "<group>"; };
 		25BE9E4822497D3D006A8227 /* RealLoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealLoginPage.swift; sourceTree = "<group>"; };
 		25CA07C322470139007AE63D /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		25E99930224A929100F84920 /* ChatPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPage.swift; sourceTree = "<group>"; };
 		26A3FDB1F932ACAF27E50729 /* Pods-AWSRekognitionStarterApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSRekognitionStarterApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSRekognitionStarterApp/Pods-AWSRekognitionStarterApp.release.xcconfig"; sourceTree = "<group>"; };
 		45808D6418BCA6C1034C29CE /* Pods-AWSRekognitionStarterAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSRekognitionStarterAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSRekognitionStarterAppUITests/Pods-AWSRekognitionStarterAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5ADC1B460C14A1705E249372 /* Pods-AWSRekognitionStarterApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSRekognitionStarterApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSRekognitionStarterApp/Pods-AWSRekognitionStarterApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				25BE9E4822497D3D006A8227 /* RealLoginPage.swift */,
 				25A1218C2249B35500F7419F /* ProfilePage.swift */,
 				25BE9E4622497675006A8227 /* ARPage.swift */,
+				25E99930224A929100F84920 /* ChatPage.swift */,
 				76A7735C213F302100974231 /* Main.storyboard */,
 				76A7735F213F302100974231 /* Assets.xcassets */,
 				76A77361213F302100974231 /* LaunchScreen.storyboard */,
@@ -407,6 +410,7 @@
 				25A1218D2249B35500F7419F /* ProfilePage.swift in Sources */,
 				25BE9E4922497D3D006A8227 /* RealLoginPage.swift in Sources */,
 				25CA07C422470139007AE63D /* LoginPage.swift in Sources */,
+				25E99931224A929100F84920 /* ChatPage.swift in Sources */,
 				76A7735B213F302100974231 /* ViewController.swift in Sources */,
 				76F9DD9A213F5724006358C3 /* Celebrity.swift in Sources */,
 				76A77359213F302100974231 /* AppDelegate.swift in Sources */,
