@@ -13,11 +13,20 @@ class RegisterPage: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     @IBOutlet weak var FirstName: UITextField!
     @IBOutlet weak var LastName: UITextField!
-    @IBOutlet weak var NameField: UIView!
+    
+    @IBOutlet weak var NextStepField: UIView!
     @IBOutlet weak var SaveButton: UIButton!
     @IBOutlet weak var PhotoInstructions: UILabel!
     @IBOutlet weak var PhotoButton: UIButton!
+    
     @IBOutlet weak var UserImageView: UIImageView!
+    
+    @IBOutlet weak var NameField: UIView!
+    @IBOutlet weak var NextStepInstructions: UILabel!
+    @IBOutlet weak var NextStepButton: UIButton!
+    @IBOutlet weak var FinishRegistration: UIButton!
+    
+    var photoCount: Int = 0
     
     var rekognitionClient:AWSRekognition!
     
@@ -32,8 +41,6 @@ class RegisterPage: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     @IBAction func NameFieldDone(_ sender: Any) {
-        print(FirstName)
-        print(LastName)
         dismissKeyboard()
         FirstName.isHidden = true
         LastName.isHidden = true
@@ -52,6 +59,25 @@ class RegisterPage: UIViewController, UIImagePickerControllerDelegate, UINavigat
         }
     }
     
+    func addImageToRekognitionCollection(imageData: Data, PhotoId: Int) {
+        rekognitionClient = AWSRekognition.default()
+        let image = AWSRekognitionImage()
+        image?.bytes = imageData
+        let imageRequest = AWSRekognitionIndexFacesRequest()
+        imageRequest?.collectionId = "UserFaces"
+        imageRequest?.externalImageId = FirstName.text! + "_" + LastName.text! + "_" + String(PhotoId)
+        
+        imageRequest?.image = image
+    
+        rekognitionClient?.indexFaces(imageRequest!) { (response:AWSRekognitionIndexFacesResponse?, error:Error?) in
+            if error == nil {
+                print(response!)
+            } else {
+                print(error!)
+            }
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true)
         
@@ -59,56 +85,26 @@ class RegisterPage: UIViewController, UIImagePickerControllerDelegate, UINavigat
             fatalError("couldn't load image from Photos")
         }
         
-        NameField.isHidden = true
+        if photoCount == 0 {
+            UserImageView.isHidden = false
+            NameField.isHidden = true
+            NextStepField.isHidden = false
+        } else if photoCount == 1 {
+            self.NextStepInstructions.text = "For the next photo, tilt your head down by 30 degrees."
+        } else if photoCount == 2 {
+            self.NextStepInstructions.text = "For the next photo, tilt your head left by 45 degrees."
+        } else if photoCount == 3 {
+            self.NextStepInstructions.text = "For the next photo, tilt your head right by 45 degrees."
+        } else if photoCount == 4 {
+            self.NextStepInstructions.text = "You have finished your registration. Press on the Finish button to begin using Social App."
+            NextStepButton.isHidden = true
+            FinishRegistration.isHidden = false
+        }
+        
         UserImageView.image = image
-        UserImageView.isHidden = false
+        photoCount += 1
         
         let userImage:Data = UIImageJPEGRepresentation(image, 0.2)!
-        addImageToRekognitionCollection(imageData: userImage)
-    }
-    
-    func addImageToRekognitionCollection(imageData: Data) {
-        rekognitionClient = AWSRekognition.default()
-        let image = AWSRekognitionImage()
-        image?.bytes = imageData
-        let imageRequest = AWSRekognitionIndexFacesRequest()
-        imageRequest?.collectionId = "UserFaces"
-        imageRequest?.externalImageId = FirstName.text! + "_" + LastName.text!
-        
-        imageRequest?.image = image
-        
-        rekognitionClient?.indexFaces(imageRequest!) { (response:AWSRekognitionIndexFacesResponse?, error:Error?) in
-            if error == nil
-            {
-                print(response!)
-                print("Testing registration")
-            } else {
-                print(error!)
-            }
-        }
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
+        addImageToRekognitionCollection(imageData: userImage, PhotoId: photoCount)
     }
 }
-

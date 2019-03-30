@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wSR-b1-1JR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wSR-b1-1JR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,6 +57,20 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-Zw-2y3">
+                                <rect key="frame" x="67" y="111" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLACEHOLDER TEXT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5f-tW-ooP">
+                                        <rect key="frame" x="24" y="21" width="192" height="197"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -73,12 +87,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="cPB-ut-aB5"/>
                     <connections>
-                        <outlet property="CelebImageView" destination="HqC-i2-tXx" id="rGw-Eb-x7k"/>
+                        <outlet property="ResponseText" destination="M5f-tW-ooP" id="rtj-U1-JMa"/>
+                        <outlet property="ResponseView" destination="GTz-Zw-2y3" id="btq-gD-3uI"/>
+                        <outlet property="UserImageView" destination="HqC-i2-tXx" id="aMJ-sr-kPt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2558" y="-1490"/>
+            <point key="canvasLocation" x="2557.5999999999999" y="-1490.1049475262371"/>
         </scene>
         <!--Login Page-->
         <scene sceneID="oaD-cP-fIo">
@@ -182,7 +198,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" textContentType="family-name"/>
                                     </textField>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please take a framed photo of your face in good lighting. This picture will be used for your facial identification." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="20" translatesAutoresizingMaskIntoConstraints="NO" id="eSi-ml-MOX">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take a framed photo of your face in good lighting. Look straight on at the camera." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="20" translatesAutoresizingMaskIntoConstraints="NO" id="eSi-ml-MOX">
                                         <rect key="frame" x="15" y="69" width="234" height="118"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -205,6 +221,38 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N9d-ZC-9iK">
                                 <rect key="frame" x="16" y="82" width="343" height="431"/>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOQ-f4-ogh">
+                                <rect key="frame" x="16" y="537" width="343" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="For the next photo, tilt your head up by 30 degrees. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXx-5C-2AM">
+                                        <rect key="frame" x="8" y="8" width="230" height="94"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJN-QC-YI6">
+                                        <rect key="frame" x="267" y="37" width="45" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="PhotoSetup:" destination="g8E-7X-ViI" eventType="touchUpInside" id="ZGi-ny-ga0"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpH-we-oCr">
+                                        <rect key="frame" x="261" y="37" width="57" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Finish"/>
+                                        <connections>
+                                            <action selector="ReturnToHome:" destination="g8E-7X-ViI" eventType="touchUpInside" id="wW7-T3-dk4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.53959760270000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -225,9 +273,13 @@
                         <viewLayoutGuide key="safeArea" id="zYE-wz-ufn"/>
                     </view>
                     <connections>
+                        <outlet property="FinishRegistration" destination="QpH-we-oCr" id="8gL-wo-g5D"/>
                         <outlet property="FirstName" destination="wo4-EY-tHI" id="oaY-qN-of8"/>
                         <outlet property="LastName" destination="yjV-D0-8fG" id="GY2-L0-chX"/>
                         <outlet property="NameField" destination="bz2-MM-0hw" id="e9O-yS-puP"/>
+                        <outlet property="NextStepButton" destination="tJN-QC-YI6" id="EFK-Vb-CId"/>
+                        <outlet property="NextStepField" destination="oOQ-f4-ogh" id="Nfr-7L-c05"/>
+                        <outlet property="NextStepInstructions" destination="oXx-5C-2AM" id="Qz1-tP-8dR"/>
                         <outlet property="PhotoButton" destination="N5e-fL-iau" id="RGK-Nm-tgk"/>
                         <outlet property="PhotoInstructions" destination="eSi-ml-MOX" id="GVv-2H-0cI"/>
                         <outlet property="SaveButton" destination="ebt-dR-vkk" id="LKi-sB-w0M"/>
@@ -236,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxa-F2-IsO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1503" y="518"/>
+            <point key="canvasLocation" x="1482" y="510"/>
         </scene>
         <!--Chat-->
         <scene sceneID="flL-V6-2s7">
@@ -588,8 +640,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CameraIcon" width="76.800003051757812" height="76.800003051757812"/>
-        <image name="PhotoLibraryIcon" width="76.800003051757812" height="76.800003051757812"/>
+        <image name="CameraIcon" width="80" height="80"/>
+        <image name="PhotoLibraryIcon" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kbz-53-7Lt"/>

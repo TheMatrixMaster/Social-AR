@@ -20,9 +20,10 @@ import AWSRekognition
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SFSafariViewControllerDelegate {
     
-    @IBOutlet weak var CelebImageView: UIImageView!
+    @IBOutlet weak var UserImageView: UIImageView!
+    @IBOutlet weak var ResponseView: UIView!
+    @IBOutlet weak var ResponseText: UILabel!
     
-    var infoLinksMap: [Int:String] = [1000:""]
     var rekognitionObject:AWSRekognition?
     var checkCamera: Bool = true
     
@@ -30,7 +31,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //let celebImage:Data = UIImageJPEGRepresentation(CelebImageView.image!, 0.2)!
+        //let celebImage:Data = UIImageJPEGRepresentation(UserImageView.image!, 0.2)!
         //sendImageToRekognition(celebImageData: celebImage)
     }
     
@@ -78,56 +79,39 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             fatalError("couldn't load image from Photos")
         }
         
-        CelebImageView.image = image
+        UserImageView.image = image
         let celebImage:Data = UIImageJPEGRepresentation(image, 0.2)!
         
         //Demo Line
-        sendImageToRekognition(celebImageData: celebImage)
+        sendImageToRekognition(ImageData: celebImage)
     }
     
     
     //MARK: - AWS Methods
-    func sendImageToRekognition(celebImageData: Data){
-        print("Recognizing")
-        //Delete older labels or buttons
-        DispatchQueue.main.async {
-            [weak self] in
-            for subView in (self?.CelebImageView.subviews)! {
-                subView.removeFromSuperview()
-            }
-        }
-        
-        guard let request = AWSRekognitionSearchFacesByImageRequest() else
-        {
-            print("Unable to initialize AWSRekognitionSearchfacerequest.")
-            return
-        }
-        request.collectionId = "UserFaces"
-        request.faceMatchThreshold = 75
-        request.maxFaces = 2
+    func sendImageToRekognition(ImageData: Data){
+        rekognitionObject = AWSRekognition.default()
         
         let image = AWSRekognitionImage()
-        image!.bytes = celebImageData
-        request.image = image
-        print("testing")
-        rekognitionObject?.searchFaces(byImage: request) { (response:AWSRekognitionSearchFacesByImageResponse?, error:Error?) in
+        image?.bytes = ImageData
+        
+        let request = AWSRekognitionSearchFacesByImageRequest()
+        request?.collectionId = "UserFaces"
+        request?.faceMatchThreshold = 99
+        request?.maxFaces = 1
+        request?.image = image
+        
+        rekognitionObject?.searchFaces(byImage: request!) { (response:AWSRekognitionSearchFacesByImageResponse?, error:Error?) in
             if error == nil
             {
                 print(response!)
-                print("testing recognizer")
-            } else{
-                print(error!)
+                print(response?.faceMatches)
+            } else {
+                print("Comparison Fail")
+                self.ResponseView.isHidden = false
+                self.ResponseText.text = "No known faces were detected in the image."
             }
             
         }
         
-    }
-    
-    @objc func handleTap(sender:UIButton){
-        print("tap recognized")
-        let celebURL = URL(string: self.infoLinksMap[sender.tag]!)
-        let safariController = SFSafariViewController(url: celebURL!)
-        safariController.delegate = self
-        self.present(safariController, animated:true)
     }
 }
