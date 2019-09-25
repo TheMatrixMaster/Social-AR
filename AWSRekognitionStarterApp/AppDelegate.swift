@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let credentialsProvider = AWSStaticCredentialsProvider(accessKey:"AKIAI5GE5ZROUUYWSUDQ", secretKey:"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")
+        let credentialsProvider = AWSStaticCredentialsProvider(accessKey:"", secretKey:"")
         let configuration = AWSServiceConfiguration(
             region: AWSRegionType.USEast1,
             credentialsProvider: credentialsProvider)
